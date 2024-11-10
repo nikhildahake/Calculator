@@ -37,17 +37,36 @@ public class Calculator {
 		}
 	}
 	
-	public static int splitTheStringAndSumNumbers(String input, String delimiter) {
+	private static int splitTheStringAndSumNumbers(String input, String delimiter) {
 		String arr[] = input.split(delimiter);
+		String listOfNegatives = getListOfNegatives(arr);
+		
+		if(!listOfNegatives.isEmpty()) {
+			throw new RuntimeException("Negative numbers are not allowed: " + listOfNegatives);
+		}
+		
 		int sum = 0;
+		for (int i=0; i<arr.length; i++) {
+			int number = Integer.parseInt(arr[i]); 
+			sum += number;
+		}
+		return sum;
+	}
+	
+	private static String getListOfNegatives(String arr[]) {
+		String list = "";
 		
 		for (int i=0; i<arr.length; i++) {
 			int number = Integer.parseInt(arr[i]); 
 			if (number < 0) {
-				throw new RuntimeException("Negative numbers are not allowed: " + input);
+				list += number + ",";
 			}
-			sum += number;
 		}
-		return sum;
+		
+		if (!list.isEmpty()) {
+			//Remove last comma
+			list = list.substring(0, list.length() - 1);
+		}
+		return list;
 	}
 }

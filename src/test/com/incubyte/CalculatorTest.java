@@ -70,4 +70,26 @@ class CalculatorTest {
 			
 		}
 	}
+	
+	@Test
+	public void exceptionOnSingleNegativeNumberShouldContainNumber() {
+		try {
+			Calculator.add("-10");
+			fail("Exception expected");
+		}
+		catch(Exception e) {
+			assertEquals("Negative numbers are not allowed: " + "-10", e.getMessage());
+		}
+	}
+	
+	@Test
+	public void exceptionOnMultipleNegativeNumberShouldContainListOfNumbers() {
+		try {
+			Calculator.add("-1,-2,3");
+			fail("Exception expected");
+		}
+		catch(Exception e) {
+			assertEquals("Negative numbers are not allowed: " + "-1,-2", e.getMessage());
+		}
+	}
 }
