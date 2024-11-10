@@ -22,4 +22,14 @@ class CalculatorTest {
 	public void shouldReturnSumOfTwoNumbersDelimitedByComma() {
 		assertEquals(3, Calculator.add("1,2"));
 	}
+	
+	@Test
+	public void shouldReturnSumOfMultipleNumbersDelimitedByComma() {
+		assertEquals(6, Calculator.add("1,2,3"));
+	}
+	
+	@Test
+	public void shouldAcceptNewlineAsAValidDelimiter() {
+		assertEquals(6, Calculator.add("1,2\n3"));
+	}
 }
