@@ -32,4 +32,19 @@ class CalculatorTest {
 	public void shouldAcceptNewlineAsAValidDelimiter() {
 		assertEquals(6, Calculator.add("1,2\n3"));
 	}
+	
+	@Test
+	public void shouldAcceptCustomDelimiter() {
+		assertEquals(11, Calculator.add("//;\n1;2;8"));
+	}
+	
+	@Test
+	public void shouldAcceptCustomDelimiterWithSpecialRegexChar1() {
+		assertEquals(11, Calculator.add("//.\n1.2.8"));
+	}
+	
+	@Test
+	public void shouldAcceptCustomDelimiterWithSpecialRegexChar2() {
+		assertEquals(11, Calculator.add("//$\n1$2$8"));
+	}
 }
