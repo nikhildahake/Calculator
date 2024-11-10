@@ -17,4 +17,9 @@ class CalculatorTest {
 	public void shouldReturnNumberOnNumber() {
 		assertEquals(1, Calculator.add("1"));
 	}
+	
+	@Test
+	public void shouldReturnSumOfTwoNumbersDelimitedByComma() {
+		assertEquals(1, Calculator.add("1,2"));
+	}
 }

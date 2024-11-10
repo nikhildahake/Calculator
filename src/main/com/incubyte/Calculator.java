@@ -11,6 +11,7 @@ public class Calculator {
 			return 0;
 		}
 		else {
+			int arr[] = input.split(input)
 			return Integer.parseInt(input);
 		}
 	} 
