@@ -1,6 +1,7 @@
 package test.com.incubyte;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
@@ -46,5 +47,27 @@ class CalculatorTest {
 	@Test
 	public void shouldAcceptCustomDelimiterWithSpecialRegexChar2() {
 		assertEquals(11, Calculator.add("//$\n1$2$8"));
+	}
+	
+	@Test
+	public void throwExceptionOnSingleNegativeNumber() {
+		try {
+			Calculator.add("-1");
+			fail("Exception expected");
+		}
+		catch(Exception e) {
+			
+		}
+	}
+	
+	@Test
+	public void throwExceptionOnMultipleNegativeNumber() {
+		try {
+			Calculator.add("-1,-2,3");
+			fail("Exception expected");
+		}
+		catch(Exception e) {
+			
+		}
 	}
 }

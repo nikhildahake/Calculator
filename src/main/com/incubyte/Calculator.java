@@ -9,7 +9,7 @@ public class Calculator {
 	}
 
 	public static int add(String input) {
-		if (input.isEmpty()) {
+		if (input.isEmpty() || input == null) {
 			return 0;
 		}
 		else if (input.startsWith("//")) {
@@ -29,7 +29,11 @@ public class Calculator {
 			return sum;
 		}
 		else {
-			return Integer.parseInt(input);
+			int number = Integer.parseInt(input); 
+			if (number < 0) {
+				throw new RuntimeException("Negative numbers are not allowed: " + input);
+			}
+			return number;
 		}
 	}
 	
@@ -38,7 +42,11 @@ public class Calculator {
 		int sum = 0;
 		
 		for (int i=0; i<arr.length; i++) {
-			sum += Integer.parseInt(arr[i]);
+			int number = Integer.parseInt(arr[i]); 
+			if (number < 0) {
+				throw new RuntimeException("Negative numbers are not allowed: " + input);
+			}
+			sum += number;
 		}
 		return sum;
 	}
