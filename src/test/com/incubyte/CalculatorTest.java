@@ -12,9 +12,4 @@ class CalculatorTest {
 	public void shouldReturnZeroOnEmptyString() {
 		assertEquals(0, Calculator.add(""));
 	}
-	
-	
-	
-	
-
 }
